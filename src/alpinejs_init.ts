@@ -1,4 +1,3 @@
-import type { Alpine } from 'alpinejs'
+import type { Alpine } from "alpinejs";
 
-export default (Alpine: Alpine) => {
-}
+export default (Alpine: Alpine) => {};

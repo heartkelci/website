@@ -1,1 +1,44 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: "Cormorant Garamound";
+  font-style: normal;
+  font-weight: 300 700;
+  src: url("/fonts/CormorantGaramond-VariableFont_wght.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Cormorant Garamound";
+  font-style: italic;
+  font-weight: 300 700;
+  src: url("/fonts/CormorantGaramond-Italic-VariableFont_wght.woff2")
+    format("woff2");
+}
+
+@font-face {
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 100 900;
+  src: url("/fonts/Jost-VariableFont_wght.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Jost";
+  font-style: italic;
+  font-weight: 100 900;
+  src: url("/fonts/Jost-Italic-VariableFont_wght.woff2") format("woff2");
+}
+
+@theme {
+  --font-serif: "Cormorant Garamound", serif;
+  --font-sans: "Jost", sans-serif;
+  --color-softwhite: #f0eaed;
+  --color-rose: #c45c7a;
+  --color-moss: #2a3d1e;
+  --color-sunshine: #e8b84b;
+  --color-mountain: #7a7a7a;
+}
+
+[x-cloak] {
+  display: none !important;
+}

@@ -1,0 +1,53 @@
+---
+import { Image } from "astro:assets";
+import logoImage from "../assets/img/logo-transparent-cropped.png";
+import { SITE_NAVIGATION } from "../site_globals";
+console.log(Astro.url.pathname);
+---
+
+<header
+  class="bg-softwhite border-rose/20 fixed top-0 right-0 left-0 z-99 flex h-[87.5px] border-b shadow-sm"
+  x-data="{currentURL: null}"
+  x-init="currentURL = window.location.pathname;"
+>
+  <div
+    class="mx-auto my-auto flex w-full max-w-6xl flex-row items-center justify-between px-6 py-2"
+  >
+    <a
+      id="masthead"
+      aria-label="Kelci Heart"
+      class="flex h-13.25 w-58.25 transition-opacity duration-200 hover:opacity-75 -mx-4"
+      href="/"
+    >
+      <Image
+        src={logoImage}
+        alt="Logo for 'Kelci Heart'"
+        class="object-scale-down"
+        format="webp"
+      />
+    </a>
+    <div id="navigation" class="flex flex-row">
+      <nav>
+        <ul class="flex flex-col gap-1">
+          {
+            SITE_NAVIGATION.map((item) => (
+              <li
+                class:list={[
+                  "text-right font-sans text-xs leading-relaxed tracking-[0.2em] uppercase",
+                  {
+                    "text-rose": Astro.url.pathname == item.href,
+                    "text-mountain hover:text-moss transition-colors duration-200":
+                      Astro.url.pathname != item.href,
+                  },
+                ]}
+              >
+                <a href={item.href}>{item.label}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+<div class="h-[87.5px] w-full"></div>

@@ -1,0 +1,23 @@
+---
+import "../styles/global.css";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../site_globals";
+
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{SITE_TITLE}</title>
+    <meta name="description" content={SITE_DESCRIPTION} />
+  </head>
+  <body class="bg-softwhite antialiased">
+    <Header />
+    <slot />
+    <Footer />
+  </body>
+</html>

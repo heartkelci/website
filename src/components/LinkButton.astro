@@ -1,0 +1,24 @@
+---
+interface Props {
+  href: string;
+  label: string;
+  style?: "sunshine" | "moss" | "rose";
+  class?: string;
+}
+const { href, label, style = "moss", class: className } = Astro.props;
+---
+
+<a
+  href={href}
+  class:list={[
+    "inline-block w-fit cursor-pointer border px-8 py-4 font-sans text-sm tracking-widest uppercase transition-all duration-200",
+    {
+      "bg-sunshine text-moss hover:brightness-80": style == "sunshine",
+      "border-rose text-rose hover:bg-rose hover:text-softwhite bg-transparent":
+        style == "rose",
+      "text-moss border-moss hover:bg-moss hover:text-softwhite bg-transparent":
+        style == "moss",
+    },
+    className,
+  ]}>{label}</a
+>

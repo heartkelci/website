@@ -1,0 +1,270 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import FullScreenHero from "../components/FullScreenHero.astro";
+import ImageText from "../components/ImageText.astro";
+import LinkButton from "../components/LinkButton.astro";
+
+import cardiganImage from "../assets/img/purple-cardigan.jpg";
+import mentoringImage from "../assets/img/mentoring.jpg";
+import bodyworkImage from "../assets/img/sacred-bodywork.jpg";
+import oracleImage from "../assets/img/oracle-readings.jpg";
+---
+
+<MainLayout>
+  <!-- Start of Hero Section -->
+  <section>
+    <FullScreenHero
+      src={cardiganImage}
+      alt="Kelci Heart wearing a purple cardigan"
+    >
+      <div
+        class="hidden h-2/3 w-full justify-center bg-linear-to-b from-transparent via-black/30 to-black/70 md:flex"
+      >
+        <div class="flex w-full max-w-3xl flex-col justify-end px-6 pb-24">
+          <p
+            class="text-sunshine mb-5 font-sans text-xs tracking-[0.3em] uppercase"
+          >
+            Work with Me
+          </p><h1
+            class="text-softwhite mb-6 font-serif text-7xl leading-tight font-light"
+            data-alpine-devtools-right-click=""
+          >
+            It's time to nourish <em class="text-sunshine">&amp; flourish.</em>
+          </h1><p
+            class="text-softwhite/85 max-w-xl font-sans text-lg leading-relaxed"
+          >
+            This work is for the ones who know something wild and alive is
+            waiting inside them — and are ready to find it and let it flourish.
+          </p><p
+            class="text-softwhite/65 mt-4 max-w-xl font-sans text-base leading-relaxed italic"
+          >
+            Whether you arrive on fire or barely flickering, there is space here
+            for all of it.
+          </p>
+        </div>
+      </div>
+    </FullScreenHero>
+    <div class="bg-moss flex h-2/3 w-full justify-center px-6 py-10 md:hidden">
+      <div class="flex w-full max-w-3xl flex-col justify-end">
+        <p
+          class="text-sunshine mb-5 font-sans text-xs tracking-[0.3em] uppercase"
+        >
+          Work with Me
+        </p><h1
+          class="text-softwhite mb-6 font-serif text-7xl leading-tight font-light"
+          data-alpine-devtools-right-click=""
+        >
+          It's time to nourish <em class="text-sunshine">&amp; flourish.</em>
+        </h1><p
+          class="text-softwhite/85 max-w-xl font-sans text-lg leading-relaxed"
+        >
+          This work is for the ones who know something wild and alive is waiting
+          inside them — and are ready to find it and let it flourish.
+        </p><p
+          class="text-softwhite/65 mt-4 max-w-xl font-sans text-base leading-relaxed italic"
+        >
+          Whether you arrive on fire or barely flickering, there is space here
+          for all of it.
+        </p>
+      </div>
+    </div>
+  </section>
+  <!-- Close of Hero Section -->
+
+  <section>
+    <ImageText
+      src={mentoringImage}
+      alt="Kelci Heart holding a white feather"
+      flippedDesktop={true}
+      flippedMobile={true}
+    >
+      <p class="text-rose mb-8 font-serif text-7xl leading-none font-light">
+        01
+      </p><h2 class="text-moss mb-6 font-serif text-4xl font-light md:text-5xl">
+        Mentoring
+      </h2><p class="text-moss mb-4 font-sans leading-relaxed">
+        Intimate 1:1 work for those ready to go deep. Together we move through
+        what's stuck, reclaim what's been hidden, and activate the energy,
+        clarity, and aliveness that's been waiting.
+      </p><p class="text-mountain mb-4 font-sans leading-relaxed">
+        This is intuitive, embodied, and real — equal parts inner alchemy,
+        nervous system work, and wild sovereign reclamation.
+      </p><p class="text-rose font-sans text-sm italic">
+        Reach out below to begin the conversation.
+      </p>
+    </ImageText>
+  </section>
+
+  <section class="bg-moss border-rose border-t-4">
+    <ImageText
+      src={bodyworkImage}
+      alt="Kelci Heart dancing by a tree"
+      flippedDesktop={false}
+      flippedMobile={true}
+    >
+      <p class="text-rose mb-8 font-serif text-7xl leading-none font-light">
+        02
+      </p><h2
+        class="text-softwhite mb-6 font-serif text-4xl font-light md:text-5xl"
+      >
+        Sacred Bodywork
+      </h2><p class="text-softwhite/80 mb-4 font-sans leading-relaxed">
+        What's perfect, poised, pretty or sparkly that might be getting in the
+        way of you being rooted in your authentic truth and divine safety on
+        this planet? Let's unwind it and help you reclaim your root.
+      </p><p class="text-softwhite/80 mb-4 font-sans leading-relaxed">
+        You have a right to be here and take up space. Sacred bodywork works
+        with both the energy essence body and the physical essence body — as
+        they are inextricably connected.
+      </p><p class="text-softwhite/80 mb-4 font-sans leading-relaxed">
+        A shamanic medicine journey where the medicine is you.
+      </p>
+      <p class="text-rose font-sans text-sm italic">
+        Reach out below to begin the conversation.
+      </p>
+    </ImageText>
+  </section>
+
+  <section>
+    <ImageText
+      src={oracleImage}
+      alt="An oracle deck"
+      flippedDesktop={true}
+      flippedMobile={true}
+    >
+      <p class="text-rose mb-8 font-serif text-7xl leading-none font-light">
+        03
+      </p><h2 class="text-moss mb-6 font-serif text-4xl font-light md:text-5xl">
+        Oracle & Intuitive Readings
+      </h2><p class="text-moss mb-4 font-sans leading-relaxed">
+        A single session for those seeking clarity, direction, or a deeper look
+        at what's alive in their lives right now.
+      </p><p class="text-mountain mb-4 font-sans leading-relaxed">
+        Drawing on intuitive card reading, tarot, astrology, and Human Design,
+        each reading meets you exactly where you are. Come with a question, a
+        season of transition, or simply an openness to receive.
+      </p><p class="text-rose font-sans text-sm italic">
+        Reach out below to begin the conversation.
+      </p>
+    </ImageText>
+  </section>
+
+  <section class="bg-moss px-8 py-20 text-center">
+    <div class="mx-auto max-w-3xl">
+      <p
+        class="text-sunshine mb-6 font-sans text-xs tracking-[0.3em] uppercase"
+      >
+        On the Horizon
+      </p><h2
+        class="text-softwhite mb-6 font-serif text-4xl leading-tight font-light italic md:text-5xl"
+        data-alpine-devtools-right-click=""
+      >
+        Some f-ing wild creations are coming to support your journey.
+      </h2><p
+        class="text-softwhite/75 mb-6 font-sans text-base leading-relaxed"
+      >
+        Programs, experiences, and containers built from the ground up to help
+        you feel more alive in your body, your heart, and your life.
+      </p><p class="text-sunshine font-serif text-2xl font-light italic">
+        Stay tuned.
+      </p>
+    </div>
+  </section>
+
+  <section x-data="{submitted: false}">
+    <div class="mx-auto max-w-2xl px-8 py-24">
+      <div class="mb-12">
+        <p class="text-rose mb-4 font-sans text-xs tracking-[0.3em] uppercase">
+          Get in touch
+        </p><h2
+          class="text-moss mb-6 font-serif text-4xl leading-tight font-light md:text-5xl"
+        >
+          Ready to explore what's possible?
+        </h2><p class="text-mountain font-sans text-base leading-relaxed">
+          Tell me a little about where you are and what you're feeling called
+          toward. I read every message personally — and I'll be in touch.
+        </p>
+      </div>
+      <form
+        x-cloak
+        x-show="!submitted"
+        class="space-y-6"
+        x-data="{name: '', email: '', interest: '', message: ''}"
+        x-on:submit.prevent="submitted=true; console.log(name, email, interest, message)"
+      >
+        <div class="grid gap-6 md:grid-cols-2">
+          <div>
+            <label
+              class="mb-2 block font-sans text-xs tracking-widest text-[#7A7A7A] uppercase"
+              >Name</label
+            ><input
+              required=""
+              class="border-moss/20 text-mountain focus:border-moss w-full border bg-[#F7F3F5] px-4 py-3 font-sans text-sm transition-colors focus:outline-none"
+              type="text"
+              name="name"
+              x-model="name"
+            />
+          </div><div>
+            <label
+              class="mb-2 block font-sans text-xs tracking-widest text-[#7A7A7A] uppercase"
+              >Email</label
+            ><input
+              required=""
+              class="border-moss/20 text-mountain focus:border-moss w-full border bg-[#F7F3F5] px-4 py-3 font-sans text-sm transition-colors focus:outline-none"
+              type="email"
+              name="email"
+              x-model="email"
+            />
+          </div>
+        </div><div>
+          <label
+            class="mb-2 block font-sans text-xs tracking-widest text-[#7A7A7A] uppercase"
+            >I'm drawn to...</label
+          ><select
+            name="interest"
+            x-model="interest"
+            required=""
+            class="border-moss/20 text-mountain focus:border-moss w-full appearance-none border bg-[#F7F3F5] px-4 py-3 font-sans text-sm transition-colors focus:outline-none"
+            ><option value="">Select one...</option><option value="Mentoring"
+              >Mentoring</option
+            ><option value="Sacred Bodywork">Sacred Bodywork</option><option
+              value="Future Programs — keep me posted"
+              >Future Programs — keep me posted</option
+            ><option value="I'm not sure yet — just reaching out"
+              >I'm not sure yet — just reaching out</option
+            ></select
+          >
+        </div><div>
+          <label
+            class="mb-2 block font-sans text-xs tracking-widest text-[#7A7A7A] uppercase"
+            >What's alive in you right now?</label
+          ><textarea
+            name="message"
+            x-model="message"
+            rows="5"
+            required=""
+            placeholder="Share a little about where you are..."
+            class="border-moss/20 text-mountain focus:border-moss w-full resize-none border bg-[#F7F3F5] px-4 py-3 font-sans text-sm placeholder-[#7A7A7A] transition-colors focus:outline-none"
+          ></textarea>
+        </div><button
+          type="submit"
+          class="bg-sunshine text-moss w-full px-8 py-4 font-sans text-sm tracking-widest uppercase transition-colors duration-200 hover:bg-[#d4a43e] disabled:opacity-60"
+          >Send it with love ♡</button
+        >
+      </form>
+      <div
+        x-cloak
+        x-show="submitted"
+        class="flex flex-col items-center justify-center py-12"
+      >
+        <div class="text-rose mb-4 font-serif text-5xl">♡</div><h3
+          class="text-moss mb-3 font-serif text-3xl font-light"
+        >
+          Thank you for reaching out.
+        </h3><p class="text-mountain font-sans text-base">
+          I read every message personally and will be in touch soon.
+        </p>
+      </div>
+    </div>
+  </section>
+</MainLayout>

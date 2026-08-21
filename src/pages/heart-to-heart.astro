@@ -1,0 +1,324 @@
+---
+import { Image } from "astro:assets";
+import MainLayout from "../layouts/MainLayout.astro";
+import FullScreenHero from "../components/FullScreenHero.astro";
+import LinkButton from "../components/LinkButton.astro";
+
+import waterfallImage from "../assets/img/waterfall-laughing.jpg";
+import hearttoheartImage from "../assets/img/heart-to-heart-hero.jpg";
+import heartImage from "../assets/img/hearts.png";
+---
+
+<MainLayout>
+  <section>
+    <FullScreenHero
+      src={hearttoheartImage}
+      alt="Kelci Heart with arms wide open"
+    >
+      <div
+        class="hidden h-2/3 w-full justify-center bg-linear-to-b from-transparent via-black/30 to-black/70 md:flex"
+      >
+        <div class="flex w-full max-w-3xl flex-col justify-end px-6 pb-24">
+          <p
+            class="text-sunshine mb-4 font-sans text-xs tracking-[0.3em] uppercase"
+          >
+            Heart to Heart
+          </p><h1
+            class="text-softwhite mb-6 font-serif text-5xl leading-tight font-light md:text-7xl"
+          >
+            Stories that open hearts.
+          </h1><p
+            class="text-softwhite/85 max-w-2xl font-sans text-base leading-relaxed md:text-lg"
+          >
+            This is a gathering place for hope and possibility — where wild
+            hearts come together to remember they are connected, they matter,
+            and that together we can not just survive these times of great
+            transition, but Actually THRIVE.
+          </p><p
+            class="text-softwhite/65 mt-4 max-w-2xl font-sans text-base leading-relaxed italic"
+          >
+            Come as you are. Tender or fierce, full or empty. There is room here
+            for all of it.
+          </p>
+        </div>
+      </div>
+    </FullScreenHero>
+    <div class="bg-moss flex h-2/3 w-full justify-center px-6 py-10 md:hidden">
+      <div class="flex w-full max-w-3xl flex-col justify-end">
+        <p
+          class="text-sunshine mb-4 font-sans text-xs tracking-[0.3em] uppercase"
+        >
+          Heart to Heart
+        </p><h1
+          class="text-softwhite mb-6 font-serif text-5xl leading-tight font-light md:text-7xl"
+        >
+          Stories that open hearts.
+        </h1><p
+          class="text-softwhite/85 max-w-2xl font-sans text-base leading-relaxed md:text-lg"
+        >
+          This is a gathering place for hope and possibility — where wild hearts
+          come together to remember they are connected, they matter, and that
+          together we can not just survive these times of great transition, but
+          Actually THRIVE.
+        </p><p
+          class="text-softwhite/65 mt-4 max-w-2xl font-sans text-base leading-relaxed italic"
+        >
+          Come as you are. Tender or fierce, full or empty. There is room here
+          for all of it.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-softwhite px-6 py-24">
+    <div class="mx-auto max-w-6xl">
+      <div class="mb-16 text-center">
+        <p
+          class="mb-4 font-sans text-xs tracking-[0.3em] text-rose uppercase"
+        >
+          Writing
+        </p><h2
+          class="font-serif text-4xl font-light text-moss md:text-5xl"
+        >
+          From my heart to yours.
+        </h2>
+      </div><div class="mx-auto max-w-4xl">
+        <div class="grid items-stretch gap-0 md:grid-cols-2">
+          <Image
+            src={waterfallImage}
+            alt="Kelci Heart laughing under a waterfall"
+            format="webp"
+          />
+          <article
+            class="border-rose flex flex-col justify-center border-t-2 bg-white/60 p-10"
+          >
+            <h3
+              class="text-moss mb-3 font-serif text-2xl leading-tight font-light"
+            >
+              Hide &amp; Seek; <em class="text-rose"
+                >Waterfalls &amp; Wildfires</em
+              >
+            </h3><p
+              class="text-mountain mb-5 font-sans text-sm leading-relaxed"
+            >
+              I am not done with hide and seek. But I am done hiding from this.
+              Ready or not. Here I come.
+            </p><a
+              class="border-rose text-rose hover:border-moss hover:text-moss border-b pb-0.5 font-sans text-xs tracking-widest uppercase transition-colors duration-200"
+              href="https://kelciheart.substack.com/p/hide-and-seek">Read more →</a
+            >
+          </article>
+        </div>
+      </div><div
+        class="-mx-6 mt-16 bg-moss px-8 py-14 text-center"
+        data-alpine-devtools-right-click=""
+      >
+        <p
+          class="mb-4 font-sans text-xs tracking-[0.3em] text-sunshine uppercase"
+        >
+          Where the writing lives
+        </p><p
+          class="mb-4 font-serif text-3xl leading-tight font-light text-softwhite italic md:text-4xl"
+        >
+          The deeper essays, poems &amp; transmissions<br
+            class="hidden md:block"
+          /> live on Substack.
+        </p><p
+          class="mx-auto mb-10 max-w-md font-sans text-sm leading-relaxed text-softwhite/60"
+        >
+          Follow along there to receive new pieces as they arrive — raw
+          reflections, sacred storytelling, and the writing that goes all the
+          way in.
+        </p><a
+          href="https://substack.com/@kelciheart"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-block bg-rose px-10 py-4 font-sans text-sm tracking-widest text-softwhite uppercase transition-colors duration-200 hover:bg-[#b04d6b]"
+          >Read &amp; Follow on Substack →</a
+        >
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-moss">
+    <div class="w-full overflow-hidden" style="height: 120px;">
+      <Image
+        src={heartImage}
+        alt=""
+        aria-hidden="true"
+        class="h-full w-full object-cover opacity-70"
+      />
+    </div><div class="px-6 pt-10 pb-24">
+      <div class="mx-auto max-w-4xl">
+        <div class="mb-12 text-center" data-alpine-devtools-right-click="">
+          <p
+            class="mb-6 font-sans text-xs tracking-[0.3em] text-sunshine uppercase"
+          >
+            The Podcast
+          </p><h2
+            class="mb-8 font-serif text-4xl leading-tight font-light text-softwhite md:text-6xl"
+          >
+            Wild Hearts Unite
+          </h2><p
+            class="mb-10 font-serif text-xl font-light text-softwhite/70 italic"
+          >
+            A Return to Our Wildness. Our Hearts Are Big Enough to Hold It All.
+          </p><div
+            class="mx-auto mb-10 max-w-2xl space-y-5 text-left font-sans text-base leading-relaxed text-softwhite/80"
+          >
+            <p>
+              Welcome to Wild Hearts Unite — a living circle where we return to
+              our wildness. Here, we remember that we matter. That we are not
+              alone. That we are supported to thrive. And that life is still
+              allowed to be magical.
+            </p><p>
+              This is a gathering place for truth-tellers, mystics, lovers of
+              life, and brave transformers. Through story, conversation, poetry,
+              music, and celestial reflection, we explore embodiment, sensual
+              aliveness, and grounded empowerment — because this moment isn't
+              just about surviving or transcending. It's about living fully.
+              Together.
+            </p><p>
+              Our hearts are big enough to hold it all. Grief and ecstasy. Pain
+              and pleasure. Fear and courage. The sacred and the human. The sky
+              and the soil and what grows in between.
+            </p><p
+              class="text-center font-serif text-xl font-light text-sunshine italic"
+            >
+              This is the return to our wildness.<br />You are here. You are
+              home.
+            </p>
+          </div><div
+            class="mb-12 inline-block border border-sunshine bg-sunshine/20 px-6 py-3 font-sans text-sm tracking-widest text-sunshine uppercase"
+          >
+            Coming Soon
+          </div>
+        </div><div class="space-y-px">
+          <div
+            class="border-l-2 border-sunshine bg-softwhite/10 p-6 transition-colors hover:bg-softwhite/15"
+          >
+            <p
+              class="mb-2 font-sans text-xs tracking-[0.2em] text-sunshine uppercase"
+            >
+              Wild Hearts Unite · Ep. 01
+            </p><h3 class="mb-2 font-serif text-2xl font-light text-softwhite">
+              Our Hearts Are Big Enough
+            </h3><p class="font-sans text-sm leading-relaxed text-softwhite/65">
+              One ceremony. A simple yes. The wildness, grief, and hope that
+              changed everything — and the origin story of this podcast, the
+              poem, and a childhood wound finally met with wonder.
+            </p>
+          </div><div
+            class="relative border-l-2 border-rose bg-softwhite/10 p-6 transition-colors hover:bg-softwhite/15"
+          >
+            <div
+              class="absolute top-4 right-4 border border-rose bg-rose/20 px-2 py-0.5 font-sans text-xs tracking-widest text-rose uppercase"
+            >
+              Coming Soon
+            </div><p
+              class="mb-2 font-sans text-xs tracking-[0.2em] text-sunshine uppercase"
+            >
+              Wild Hearts Unite · Ep. 02
+            </p><h3 class="mb-2 font-serif text-2xl font-light text-softwhite">
+              Everything Matters
+            </h3><p class="font-sans text-sm leading-relaxed text-softwhite/65">
+              Synchronicity beyond logic — a story of how the universe conspires
+              for us when we let it.
+            </p>
+          </div><div
+            class="relative border-l-2 border-rose bg-softwhite/10 p-6 transition-colors hover:bg-softwhite/15"
+          >
+            <div
+              class="absolute top-4 right-4 border border-rose bg-rose/20 px-2 py-0.5 font-sans text-xs tracking-widest text-rose uppercase"
+            >
+              Coming Soon
+            </div><p
+              class="mb-2 font-sans text-xs tracking-[0.2em] text-sunshine uppercase"
+            >
+              Wild Hearts Unite · Ep. 03
+            </p><h3 class="mb-2 font-serif text-2xl font-light text-softwhite">
+              Thera's Story
+            </h3><p class="font-sans text-sm leading-relaxed text-softwhite/65">
+              A wild mustang, five years of trust, and what it means to come
+              home to yourself.
+            </p>
+          </div><div
+            class="relative border-l-2 border-rose bg-softwhite/10 p-6 transition-colors hover:bg-softwhite/15"
+          >
+            <div
+              class="absolute top-4 right-4 border border-rose bg-rose/20 px-2 py-0.5 font-sans text-xs tracking-widest text-rose uppercase"
+            >
+              Coming Soon
+            </div><p
+              class="mb-2 font-sans text-xs tracking-[0.2em] text-sunshine uppercase"
+            >
+              Fire Horse Series · Ep. 04
+            </p><h3 class="mb-2 font-serif text-2xl font-light text-softwhite">
+              What Fire Needs
+            </h3><p class="font-sans text-sm leading-relaxed text-softwhite/65">
+              Containment, slowness, tending — lessons from a controlled burn on
+              a fence line.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-softwhite px-6 py-24" data-alpine-devtools-right-click="">
+    <div class="mx-auto max-w-4xl text-center">
+      <p
+        class="mb-4 font-sans text-xs tracking-[0.3em] text-rose uppercase"
+      >
+        Find me out there
+      </p><h2
+        class="mb-6 font-serif text-4xl leading-tight font-light text-moss md:text-5xl"
+      >
+        More transmissions, forest walks,<br /><em
+          >frequency attunements, and wild moments.</em
+        >
+      </h2><p
+        class="mx-auto mb-12 max-w-xl font-sans text-base leading-relaxed text-mountain"
+      >
+        Follow along wherever you are.
+      </p><div class="flex flex-wrap justify-center gap-4">
+        <LinkButton
+          href="https://www.instagram.com/kelciheart"
+          style="moss"
+          label="Instagram"
+        />
+        <LinkButton
+          href="https://www.tiktok.com/@kelciheart"
+          style="moss"
+          label="TikTok"
+        />
+        <LinkButton
+          href="https://www.youtube.com/@KelciHeart"
+          style="moss"
+          label="YouTube"
+        />
+        <LinkButton
+          href="https://substack.com/@kelciheart"
+          style="moss"
+          label="Substack"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-moss px-6 py-20" data-alpine-devtools-right-click="">
+    <div class="mx-auto max-w-2xl text-center">
+      <h2
+        class="font-serif mb-6 text-4xl leading-tight font-light text-softwhite md:text-5xl"
+      >
+        Ready to go deeper?
+      </h2><p
+        class="font-sans mb-8 text-base leading-relaxed text-softwhite/75"
+      >
+        The words are a doorway. The real alchemy happens in the work.
+      </p><a
+        class="font-sans inline-block bg-rose px-10 py-4 text-sm tracking-widest text-softwhite uppercase transition-colors duration-200 hover:bg-[#b04d6b]"
+        href="/work-with-me">Work with Me</a>
+    </div>
+  </section>
+</MainLayout>

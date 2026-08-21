@@ -1,17 +1,370 @@
 ---
+import { Image } from "astro:assets";
+import FullScreenHero from "../components/FullScreenHero.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+import LinkButton from "../components/LinkButton.astro";
+import ImageText from "../components/ImageText.astro";
+import Card from "../components/Card.astro";
 
+import gardenImage from "../assets/img/garden-portrait.jpg";
+import moonImage from "../assets/img/moon-orb.png";
+import rainbowImage from "../assets/img/rainbow-face.jpg";
+import featherImage from "../assets/img/feather.png";
+import waterfallImage from "../assets/img/waterfall-laughing.jpg";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<MainLayout>
+  <!-- Start of Hero Section -->
+  <section>
+    <FullScreenHero src={gardenImage} alt="Kelci Heart in a sunflower garden">
+      <div
+        class="hidden h-2/3 w-full justify-center bg-linear-to-b from-transparent via-black/30 to-black/70 md:flex"
+      >
+        <div class="flex w-full max-w-3xl flex-col justify-end px-6 pb-24">
+          <p
+            class="text-softwhite/80 font-sans text-xs tracking-[0.3em] uppercase"
+          >
+            Welcome, Wild Heart
+          </p>
+          <h1 class="text-softwhite pt-6 font-serif text-7xl leading-tight">
+            You were made to <br />
+            <em class="text-sunshine">Actually THRIVE.</em>
+          </h1>
+          <p class="text-softwhite/90 pt-4 font-serif text-3xl italic">
+            Live your most sexy · joyous · magical life yet.
+          </p>
+          <p class="text-softwhite max-w-xl pt-6 pb-10 font-sans">
+            Not just get through the day. Not just cope, manage, or hold it
+            together. Fully, fiercely, and unapologetically alive — in your
+            body, your heart, and your life.
+          </p>
+          <LinkButton href="#" label="Yes, I'm ready →" style="sunshine" />
+        </div>
+      </div>
+    </FullScreenHero>
+    <div class="bg-moss flex h-2/3 w-full justify-center px-6 py-10 md:hidden">
+      <div class="flex w-full max-w-3xl flex-col justify-end">
+        <p
+          class="text-softwhite/80 font-sans text-xs tracking-[0.3em] uppercase"
+        >
+          Welcome, Wild Heart
+        </p>
+        <h1 class="text-softwhite pt-6 font-serif text-5xl leading-tight">
+          You were made to <br />
+          <em class="text-sunshine">Actually THRIVE.</em>
+        </h1>
+        <p class="text-softwhite/85 pt-4 font-serif text-xl italic">
+          Live your most sexy · joyous · magical life yet.
+        </p>
+        <p class="text-softwhite/75 max-w-xl pt-6 pb-10 font-sans">
+          Not just get through the day. Not just cope, manage, or hold it
+          together. Fully, fiercely, and unapologetically alive — in your body,
+          your heart, and your life.
+        </p>
+        <LinkButton href="#" label="Yes, I'm ready →" style="sunshine" />
+      </div>
+    </div>
+  </section>
+  <!-- Close of Hero Section -->
+
+  <!-- Start of First Content Section -->
+  <section>
+    <div class="mx-auto flex w-full max-w-3xl flex-col px-6 py-24">
+      <h2 class="text-moss text-center font-serif text-3xl md:text-5xl">
+        If something wild and alive is waiting inside you —
+      </h2>
+      <div
+        class="text-mountain mx-auto max-w-2xl space-y-4 pt-8 text-center font-sans text-base leading-relaxed"
+      >
+        <p>
+          You've felt it. That quiet knowing that there's more. More aliveness.
+          More pleasure. More freedom. More of you.
+        </p><p>
+          This is the place where you stop making yourself smaller and start
+          remembering who you actually are. Where the body becomes the altar,
+          pleasure becomes prayer, and presence is the path home.
+        </p><p>
+          You don't have to fragment yourself to fit here. All of you is
+          welcome.
+        </p><p>
+          And if you're tired — if the fire feels far away right now — that's
+          okay too. This work meets you exactly where you are. Sometimes the
+          most radical thing is to simply be met, to be seen, to be soothed back
+          into yourself. Rest is not retreat. It is renewal.
+        </p>
+      </div>
+    </div>
+  </section>
+  <!-- Close of First Content Section -->
+
+  <!-- Start of Second Content Section -->
+  <section>
+    <div class="border-rose/20 relative flex border-t px-6 py-16">
+      <div
+        class="absolute inset-0 flex items-center justify-center overflow-hidden"
+      >
+        <Image
+          src={moonImage}
+          alt="Image of the moon and stars"
+          class="w-full max-w-170 object-contain opacity-50"
+          format="webp"
+        />
+      </div>
+      <div class="relative z-10 mx-auto max-w-4xl text-center">
+        <p class="text-rose mb-6 font-sans text-xs tracking-[0.3em] uppercase">
+          The fierce truth
+        </p><h2
+          class="text-rose mb-8 font-serif text-4xl leading-tight font-light md:text-6xl"
+        >
+          You are a powerful being,<br /><em>full of magic and wonder.</em>
+        </h2><div
+          class="mt-10 flex flex-col items-center justify-center gap-8 md:flex-row"
+        >
+          <div
+            class="text-moss text-center font-serif text-2xl font-light md:text-3xl"
+          >
+            Able to be Healed.
+          </div><div
+            class="text-moss text-center font-serif text-2xl font-light md:text-3xl"
+          >
+            Made to be Whole.
+          </div><div
+            class="text-moss text-center font-serif text-2xl font-light md:text-3xl"
+          >
+            Ready to be Happy.
+          </div>
+        </div><p
+          class="text-mountain mx-auto mt-10 max-w-2xl font-sans text-base leading-relaxed"
+        >
+          F anything that tells you otherwise. Your life is your own — and it's
+          time you reclaim your power and allow your magic. Find, create, and
+          live from your true heart's desires.
+        </p>
+      </div>
+    </div>
+  </section>
+  <!-- Close of Second Content Section -->
+
+  <!-- Start of Third Content Section -->
+  <section class="bg-moss border-rose border-t-4 border-b-4">
+    <ImageText
+      src={rainbowImage}
+      alt=""
+      class="h-150 w-full object-cover"
+      flippedDesktop={true}
+      flippedMobile={false}
+    >
+      <p class="text-rose mb-4 font-sans text-xs tracking-[0.3em] uppercase">
+        Your guide
+      </p><h2
+        class="text-softwhite mb-6 font-serif text-4xl leading-tight font-light md:text-5xl"
+      >
+        I'm Kelci Heart.
+      </h2><div
+        class="text-softwhite/80 space-y-4 font-sans text-base leading-relaxed"
+      >
+        <p>
+          I'm a THRIVE guide, sacred bodyworker, and intuitive mentor — and I've
+          been through the fire. I know what it feels like to survive when you
+          should be thriving. I also know what it feels like to come back to
+          life.
+        </p><p>
+          Through embodiment, energy alchemy, and the F'd Up Alchemy method, I
+          create spaces where people come alive again — fully, fiercely, and
+          unapologetically. Turning life's grit and grief into beauty, bravery,
+          and liberation.
+        </p><p class="text-sunshine font-serif text-xl font-light italic">
+          With equal parts fierce truth and deep tenderness — because real
+          transformation needs both.
+        </p><p class="text-sunshine font-serif text-xl font-light">
+          <em>The medicine is you. The work is coming home.</em>
+        </p>
+      </div>
+      <LinkButton
+        label="Work with me →"
+        href="/work-with-me"
+        style="rose"
+        class:list={"mt-8"}
+      />
+    </ImageText>
+  </section>
+  <!-- Close of Third Content Section -->
+
+  <!-- Start of Fourth Content Section -->
+  <section>
+    <div
+      class="border-rose relative flex items-center justify-center border-b-4 px-6 py-24"
+    >
+      <div class="mb-16 flex max-w-6xl flex-col">
+        <div class="mb-16 text-center">
+          <p
+            class="text-rose mb-4 font-sans text-xs tracking-[0.3em] uppercase"
+          >
+            Ways to work together
+          </p><h2 class="text-moss font-serif text-4xl font-light md:text-5xl">
+            Where would you like to <em class="text-rose">begin?</em>
+          </h2>
+        </div>
+        <div class="grid gap-6 md:grid-cols-3">
+          <Card>
+            <p
+              class="text-rose mb-4 font-serif text-5xl leading-none font-light"
+            >
+              01
+            </p><h3 class="text-moss mb-4 font-serif text-2xl font-light">
+              Mentoring
+            </h3><p
+              class="text-mountain mb-6 font-sans text-sm leading-relaxed"
+            >
+              Intimate 1:1 work for those ready to go deep. Intuitive, embodied,
+              and real — equal parts inner alchemy, nervous system work, and
+              wild sovereign reclamation.
+            </p><a
+              class="border-rose text-rose hover:border-moss hover:text-moss border-b pb-0.5 font-sans text-xs tracking-widest uppercase transition-colors duration-200"
+              href="/work-with-me">Learn more →</a
+            >
+          </Card>
+          <Card>
+            <p
+              class="text-rose mb-4 font-serif text-5xl leading-none font-light"
+            >
+              02
+            </p><h3 class="text-moss mb-4 font-serif text-2xl font-light">
+              Sacred Bodywork
+            </h3><p
+              class="text-mountain mb-6 font-sans text-sm leading-relaxed"
+            >
+              A shamanic medicine journey where the medicine is you. The body
+              holds everything — memory, wisdom, sensation, and power. This is
+              where it gets to be released and reclaimed.
+            </p><a
+              class="border-rose text-rose hover:border-moss hover:text-moss border-b pb-0.5 font-sans text-xs tracking-widest uppercase transition-colors duration-200"
+              href="/work-with-me">Learn more →</a
+            >
+          </Card>
+          <Card class="border-rose border-t-2 bg-white/60 p-8">
+            <p
+              class="text-rose mb-4 font-serif text-5xl leading-none font-light"
+            >
+              03
+            </p><h3 class="text-moss mb-4 font-serif text-2xl font-light">
+              Programs &amp; Retreats
+            </h3><p
+              class="text-mountain mb-6 font-sans text-sm leading-relaxed"
+            >
+              Containers built from the ground up to help you feel more alive in
+              your body, your heart, and your life.
+            </p><span
+              class="font-sans text-xs tracking-widest text-[#7A7A7A] uppercase"
+              >Coming Soon</span
+            >
+          </Card>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Close of Forth Content Section -->
+
+  <!-- Start of Newsletter CTA -->
+  <section
+    class="bg-moss relative overflow-hidden px-6 py-24"
+    x-data="{submitted: false}"
+  >
+    <div class="pointer-events-none absolute top-26 right-18 select-none">
+      <Image
+        src={featherImage}
+        alt="Image of a feather"
+        class="h-30 w-auto -rotate-15"
+        format="webp"
+      />
+    </div><div class="relative z-10 mx-auto max-w-2xl text-center">
+      <p
+        class="text-sunshine mb-2 font-sans text-xs tracking-[0.3em] uppercase"
+      >
+        A gift for you
+      </p><h2
+        class="text-softwhite mb-6 font-serif text-4xl leading-tight font-light md:text-5xl"
+      >
+        Come back to yourself.
+      </h2><p
+        class="text-softwhite/80 mb-2 font-sans text-base leading-relaxed"
+      >
+        Receive a free grounding frequency transmission — come back to your
+        body, your breath, and your wildness.
+      </p><p
+        class="text-softwhite/60 mb-10 font-sans text-sm leading-relaxed italic"
+      >
+        No noise. Just transmissions worth receiving.
+      </p><form
+        x-data="{email: ''}"
+        x-cloak
+        x-show="!submitted"
+        x-on:submit.prevent="console.log(email);"
+        class="mx-auto flex max-w-md flex-col gap-3 sm:flex-row"
+      >
+        <input
+          x-model="email"
+          type="email"
+          required=""
+          placeholder="your@email.com"
+          class="border-moss/20 text-softwhite placeholder-softwhite/50 focus:border-sunshine flex-1 border bg-[#3a5029] px-4 py-3 font-sans text-sm transition-colors focus:outline-none"
+          name="email"
+        /><button
+          x-on:click="submitted=true"
+          class="bg-sunshine text-moss transition-brightness px-6 py-3 font-sans text-sm tracking-widest whitespace-nowrap uppercase duration-200 hover:brightness-80"
+          >Yes! I'm ready</button
+        >
+      </form>
+      <p
+        x-cloak
+        x-show="submitted"
+        class="font-heading text-sunshine animate-pulse text-2xl font-light italic"
+      >
+        F-yes! I'll see you in your inbox. 🌹
+      </p>
+    </div>
+  </section>
+  <!-- Close of Newsletter CTA -->
+
+  <!-- Start of Heart to Heart Section -->
+  <section>
+    <div class="flex flex-col px-6 py-24">
+      <div class="mx-auto mb-16 flex w-full max-w-3xl flex-col text-center">
+        <p class="text-rose mb-4 font-sans text-xs tracking-[0.3em] uppercase">
+          Heart to Heart
+        </p><h2 class="text-moss font-serif text-4xl font-light md:text-5xl">
+          Stories that open hearts.
+        </h2>
+      </div>
+      <div class="mx-auto mb-12 max-w-4xl">
+        <div class="grid items-stretch gap-0 md:grid-cols-2">
+          <Image
+            src={waterfallImage}
+            alt="Kelci Heart laughing under a waterfall"
+            format="webp"
+          />
+          <article
+            class="border-rose flex flex-col justify-center border-t-2 bg-white/60 p-10"
+          >
+            <h3
+              class="text-moss mb-3 font-serif text-2xl leading-tight font-light"
+            >
+              Hide &amp; Seek; <em class="text-rose"
+                >Waterfalls &amp; Wildfires</em
+              >
+            </h3><p
+              class="text-mountain mb-5 font-sans text-sm leading-relaxed"
+            >
+              I am not done with hide and seek. But I am done hiding from this.
+              Ready or not. Here I come.
+            </p><a
+              class="border-rose text-rose hover:border-moss hover:text-moss border-b pb-0.5 font-sans text-xs tracking-widest uppercase transition-colors duration-200"
+              href="https://kelciheart.substack.com/p/hide-and-seek">Read more →</a
+            >
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Close of Heart to Heart Section -->
+</MainLayout>
