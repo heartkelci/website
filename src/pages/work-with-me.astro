@@ -186,11 +186,13 @@ import oracleImage from "../assets/img/oracle-readings.jpg";
         </p>
       </div>
       <form
+        name="interest"
         x-cloak
         x-show="!submitted"
         class="space-y-6"
-        x-data="{name: '', email: '', interest: '', message: ''}"
-        x-on:submit.prevent="submitted=true; console.log(name, email, interest, message)"
+        x-data="interestForm()"
+        x-on:submit.prevent="handleSubmit();"
+        data-netlify="true"
       >
         <div class="grid gap-6 md:grid-cols-2">
           <div>
@@ -246,6 +248,7 @@ import oracleImage from "../assets/img/oracle-readings.jpg";
             placeholder="Share a little about where you are..."
             class="border-moss/20 text-mountain focus:border-moss w-full resize-none border bg-[#F7F3F5] px-4 py-3 font-sans text-sm placeholder-[#7A7A7A] transition-colors focus:outline-none"
           ></textarea>
+          <input type="hidden" name="form-name" value="interest" />
         </div><button
           type="submit"
           class="bg-sunshine text-moss w-full px-8 py-4 font-sans text-sm tracking-widest uppercase transition-colors duration-200 hover:bg-[#d4a43e] disabled:opacity-60"
@@ -253,7 +256,6 @@ import oracleImage from "../assets/img/oracle-readings.jpg";
         >
       </form>
       <div
-        x-cloak
         x-show="submitted"
         class="flex flex-col items-center justify-center py-12"
       >
