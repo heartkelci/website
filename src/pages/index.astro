@@ -265,67 +265,6 @@ import waterfallImage from "../assets/img/waterfall-laughing.jpg";
   </section>
   <!-- Close of Forth Content Section -->
 
-  <!-- Start of Newsletter CTA -->
-  <section
-    class="bg-moss relative overflow-hidden px-6 py-24"
-    x-data="{submitted: false}"
-  >
-    <div class="pointer-events-none absolute top-26 right-18 select-none">
-      <Image
-        src={featherImage}
-        alt="Image of a feather"
-        class="h-30 w-auto -rotate-15"
-        format="webp"
-      />
-    </div><div class="relative z-10 mx-auto max-w-2xl text-center">
-      <p
-        class="text-sunshine mb-2 font-sans text-xs tracking-[0.3em] uppercase"
-      >
-        A gift for you
-      </p><h2
-        class="text-softwhite mb-6 font-serif text-4xl leading-tight font-light md:text-5xl"
-      >
-        Come back to yourself.
-      </h2><p
-        class="text-softwhite/80 mb-2 font-sans text-base leading-relaxed"
-      >
-        Receive a free grounding frequency transmission — come back to your
-        body, your breath, and your wildness.
-      </p><p
-        class="text-softwhite/60 mb-10 font-sans text-sm leading-relaxed italic"
-      >
-        No noise. Just transmissions worth receiving.
-      </p><form
-        x-data="{email: ''}"
-        x-cloak
-        x-show="!submitted"
-        x-on:submit.prevent="console.log(email);"
-        class="mx-auto flex max-w-md flex-col gap-3 sm:flex-row"
-      >
-        <input
-          x-model="email"
-          type="email"
-          required=""
-          placeholder="your@email.com"
-          class="border-moss/20 text-softwhite placeholder-softwhite/50 focus:border-sunshine flex-1 border bg-[#3a5029] px-4 py-3 font-sans text-sm transition-colors focus:outline-none"
-          name="email"
-        /><button
-          x-on:click="submitted=true"
-          class="bg-sunshine text-moss transition-brightness px-6 py-3 font-sans text-sm tracking-widest whitespace-nowrap uppercase duration-200 hover:brightness-80"
-          >Yes! I'm ready</button
-        >
-      </form>
-      <p
-        x-cloak
-        x-show="submitted"
-        class="font-heading text-sunshine animate-pulse text-2xl font-light italic"
-      >
-        F-yes! I'll see you in your inbox. 🌹
-      </p>
-    </div>
-  </section>
-  <!-- Close of Newsletter CTA -->
-
   <!-- Start of Heart to Heart Section -->
   <section>
     <div class="flex flex-col px-6 py-24">
