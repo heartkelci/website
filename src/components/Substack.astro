@@ -1,0 +1,155 @@
+---
+import { Image } from "astro:assets";
+import waterfallImage from "../assets/img/waterfall-laughing.jpg";
+
+interface Props {
+  class?: string;
+  limit?: number;
+}
+
+const { class: className, limit = 1} = Astro.props;
+---
+
+<div class:list={["substack-container flex flex-col gap-y-6", className]} data-limit={limit}>
+  <div class="template hidden items-stretch gap-0 md:grid-cols-2">
+    <img src="" alt="" class="h-full w-full object-cover" />
+    <article
+      class="article-container border-rose bg-softwhite flex flex-col justify-center border-t-2 p-10"
+    >
+      <h3
+        class="article-title text-moss mb-3 font-serif text-2xl leading-tight font-light"
+      >
+      </h3><p
+        class="article-excerpt text-mountain mb-5 font-sans text-sm leading-relaxed"
+      >
+      </p><a
+        class="article-link border-rose text-rose hover:border-moss hover:text-moss border-b pb-0.5 font-sans text-xs tracking-widest uppercase transition-colors duration-200"
+        href="">Read more →</a
+      >
+    </article>
+  </div>
+  <div class="article-fallback hidden items-stretch gap-0 md:grid-cols-2">
+    <Image
+      src={waterfallImage}
+      alt="Kelci Heart laughing under a waterfall"
+      format="webp"
+    />
+    <article
+      class="border-rose bg-softwhite flex flex-col justify-center border-t-2 p-10"
+    >
+      <h3 class="text-moss mb-3 font-serif text-2xl leading-tight font-light">
+        Hide &amp; Seek; <em class="text-rose">Waterfalls &amp; Wildfires</em>
+      </h3><p class="text-mountain mb-5 font-sans text-sm leading-relaxed">
+        I am not done with hide and seek. But I am done hiding from this. Ready
+        or not. Here I come.
+      </p><a
+        class="border-rose text-rose hover:border-moss hover:text-moss border-b pb-0.5 font-sans text-xs tracking-widest uppercase transition-colors duration-200"
+        href="https://kelciheart.substack.com/p/hide-and-seek">Read more →</a
+      >
+    </article>
+  </div>
+</div>
+
+<script>
+
+  interface SubstackData {
+    title: string;
+    description: string;
+    imageURL: string;
+    articleURL: string;
+    excerpt: string;
+  }
+
+  document.addEventListener("DOMContentLoaded", async () => {
+    async function getSubstackRSS(): Promise<Array<SubstackData> | undefined> {
+    const response = await fetch("/substack-rss");
+    if (!response.ok) {
+      return;
+    }
+    try {
+      const data = await response.text();
+      const parser = new DOMParser();
+      const xmlDoc = parser.parseFromString(data, "text/xml");
+
+      const items = Array.from(xmlDoc.querySelectorAll("channel item"));
+      const parsedData = items.map((item) => {
+        const title = item.querySelector("title")?.textContent;
+        const description = item.querySelector("description")?.textContent;
+        const articleURL = item.querySelector("link")?.textContent;
+        const imageURL = item
+          .querySelector("enclosure")
+          ?.getAttribute("url");
+        
+        const content = parser.parseFromString(
+          item.getElementsByTagNameNS("*", "encoded")[0].textContent,
+          "text/html",
+        );
+        Array.from(content.body.children).forEach((child) => {if (child.tagName != "P") {child.remove();}});
+        let excerpt = content.body.innerText.replace(/([.,!?;:])(?!\s|$)/g, "$1 ").slice(0, 300);
+        excerpt = excerpt.slice(0, excerpt.lastIndexOf(" ")) + "...";
+
+        if (title && description && articleURL && imageURL && excerpt) {
+            return {title: title, description: description, articleURL: articleURL, imageURL: imageURL, excerpt: excerpt}
+        }
+      });
+      const output = parsedData.filter((x) => x != undefined);
+      return output;
+    
+    } catch (error) {
+      console.log(error);
+      return;
+    }
+  }
+
+  const substackComponents = document.querySelectorAll("div.substack-container");
+  let rssData = await getSubstackRSS();
+  
+  if (!rssData) {
+    substackComponents.forEach((x) => {
+        const template = x.querySelector('.template');
+        const fallback = x.querySelector('.article-fallback');
+        fallback?.classList.add('grid');
+        fallback?.classList.remove('hidden');
+        template?.remove();
+
+    })
+  } else {
+    substackComponents.forEach((x) => {
+        const template = x.querySelector('.template');
+        const fallback = x.querySelector('.article-fallback');
+        const limit = Number(x.getAttribute('data-limit'));
+        rssData.slice(0,limit).map((data) => {
+            const newItem = template?.cloneNode(true) as HTMLElement | undefined;
+            newItem?.classList.remove('hidden', 'template');
+            newItem?.classList.add('grid');
+
+            const newItemTitle = newItem?.querySelector('h3.article-title');
+            const newItemDescription = newItem?.querySelector('p.article-excerpt');
+            const newItemImage = newItem?.querySelector('img');
+            const newItemLink = newItem?.querySelector('p.article-link');
+
+            if (newItemTitle){
+                newItemTitle.innerHTML = data.title;
+            }
+
+            if (newItemDescription){
+                newItemDescription.innerHTML = data.excerpt;
+            }
+
+            newItemImage?.setAttribute('src', data.imageURL);
+            newItemImage?.setAttribute('alt', `Featured image for article titled "${data.title}"`);
+
+            newItemLink?.setAttribute('href', data.articleURL);
+
+            if (newItem) {
+                x.appendChild(newItem);
+            }
+
+            template?.remove();
+            fallback?.remove();
+
+        })
+    })
+  }
+  })
+</script>

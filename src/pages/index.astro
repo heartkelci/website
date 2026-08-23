@@ -11,6 +11,7 @@ import moonImage from "../assets/img/moon-orb.png";
 import rainbowImage from "../assets/img/rainbow-face.jpg";
 import featherImage from "../assets/img/feather.png";
 import waterfallImage from "../assets/img/waterfall-laughing.jpg";
+import Substack from "../components/Substack.astro";
 ---
 
 <MainLayout>
@@ -255,7 +256,7 @@ import waterfallImage from "../assets/img/waterfall-laughing.jpg";
               Containers built from the ground up to help you feel more alive in
               your body, your heart, and your life.
             </p><span
-              class="font-sans text-xs tracking-widest text-mountain uppercase"
+              class="text-mountain font-sans text-xs tracking-widest uppercase"
               >Coming Soon</span
             >
           </Card>
@@ -264,45 +265,21 @@ import waterfallImage from "../assets/img/waterfall-laughing.jpg";
     </div>
   </section>
   <!-- Close of Forth Content Section -->
-   
+
   <!-- Start of Heart to Heart Section -->
   <section class="bg-moss">
     <div class="flex flex-col px-6 py-24">
       <div class="mx-auto mb-16 flex w-full max-w-3xl flex-col text-center">
         <p class="text-rose mb-4 font-sans text-xs tracking-[0.3em] uppercase">
           Heart to Heart
-        </p><h2 class="text-softwhite font-serif text-4xl font-light md:text-5xl">
+        </p><h2
+          class="text-softwhite font-serif text-4xl font-light md:text-5xl"
+        >
           Stories that open hearts.
         </h2>
       </div>
-      <div class="mx-auto mb-12 max-w-4xl">
-        <div class="grid items-stretch gap-0 md:grid-cols-2">
-          <Image
-            src={waterfallImage}
-            alt="Kelci Heart laughing under a waterfall"
-            format="webp"
-          />
-          <article
-            class="border-rose flex flex-col justify-center border-t-2 bg-softwhite p-10"
-          >
-            <h3
-              class="text-moss mb-3 font-serif text-2xl leading-tight font-light"
-            >
-              Hide &amp; Seek; <em class="text-rose"
-                >Waterfalls &amp; Wildfires</em
-              >
-            </h3><p
-              class="text-mountain mb-5 font-sans text-sm leading-relaxed"
-            >
-              I am not done with hide and seek. But I am done hiding from this.
-              Ready or not. Here I come.
-            </p><a
-              class="border-rose text-rose hover:border-moss hover:text-moss border-b pb-0.5 font-sans text-xs tracking-widest uppercase transition-colors duration-200"
-              href="https://kelciheart.substack.com/p/hide-and-seek">Read more →</a
-            >
-          </article>
-        </div>
-      </div>
+      <Substack class="mx-auto mb-12 max-w-4xl"/>
+      <LinkButton label="Read more on Substack →" href="https://kelciheart.substack.com/" style="sunshine" class="mx-auto"/>
     </div>
   </section>
   <!-- Close of Heart to Heart Section -->
