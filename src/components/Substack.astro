@@ -7,10 +7,13 @@ interface Props {
   limit?: number;
 }
 
-const { class: className, limit = 1} = Astro.props;
+const { class: className, limit = 1 } = Astro.props;
 ---
 
-<div class:list={["substack-container flex flex-col gap-y-6", className]} data-limit={limit}>
+<div
+  class:list={["substack-container flex flex-col gap-y-6", className]}
+  data-limit={limit}
+>
   <div class="template hidden items-stretch gap-0 md:grid-cols-2">
     <img src="" alt="" class="h-full w-full object-cover" />
     <article
@@ -51,7 +54,6 @@ const { class: className, limit = 1} = Astro.props;
 </div>
 
 <script>
-
   interface SubstackData {
     title: string;
     description: string;
@@ -62,94 +64,107 @@ const { class: className, limit = 1} = Astro.props;
 
   document.addEventListener("DOMContentLoaded", async () => {
     async function getSubstackRSS(): Promise<Array<SubstackData> | undefined> {
-    const response = await fetch("/substack-rss");
-    if (!response.ok) {
-      return;
+      const response = await fetch("/substack-rss");
+      if (!response.ok) {
+        return;
+      }
+      try {
+        const data = await response.text();
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(data, "text/xml");
+
+        const items = Array.from(xmlDoc.querySelectorAll("channel item"));
+        const parsedData = items.map((item) => {
+          const title = item.querySelector("title")?.textContent;
+          const description = item.querySelector("description")?.textContent;
+          const articleURL = item.querySelector("link")?.textContent;
+          const imageURL = item.querySelector("enclosure")?.getAttribute("url");
+
+          const content = parser.parseFromString(
+            item.getElementsByTagNameNS("*", "encoded")[0].textContent,
+            "text/html",
+          );
+          Array.from(content.body.children).forEach((child) => {
+            if (child.tagName != "P") {
+              child.remove();
+            }
+          });
+          let excerpt = content.body.innerText
+            .replace(/([.,!?;:])(?!\s|$)/g, "$1 ")
+            .slice(0, 300);
+          excerpt = excerpt.slice(0, excerpt.lastIndexOf(" ")) + "...";
+
+          if (title && description && articleURL && imageURL && excerpt) {
+            return {
+              title: title,
+              description: description,
+              articleURL: articleURL,
+              imageURL: imageURL,
+              excerpt: excerpt,
+            };
+          }
+        });
+        const output = parsedData.filter((x) => x != undefined);
+        return output;
+      } catch (error) {
+        console.log(error);
+        return;
+      }
     }
-    try {
-      const data = await response.text();
-      const parser = new DOMParser();
-      const xmlDoc = parser.parseFromString(data, "text/xml");
 
-      const items = Array.from(xmlDoc.querySelectorAll("channel item"));
-      const parsedData = items.map((item) => {
-        const title = item.querySelector("title")?.textContent;
-        const description = item.querySelector("description")?.textContent;
-        const articleURL = item.querySelector("link")?.textContent;
-        const imageURL = item
-          .querySelector("enclosure")
-          ?.getAttribute("url");
-        
-        const content = parser.parseFromString(
-          item.getElementsByTagNameNS("*", "encoded")[0].textContent,
-          "text/html",
-        );
-        Array.from(content.body.children).forEach((child) => {if (child.tagName != "P") {child.remove();}});
-        let excerpt = content.body.innerText.replace(/([.,!?;:])(?!\s|$)/g, "$1 ").slice(0, 300);
-        excerpt = excerpt.slice(0, excerpt.lastIndexOf(" ")) + "...";
+    const substackComponents = document.querySelectorAll(
+      "div.substack-container",
+    );
+    let rssData = await getSubstackRSS();
 
-        if (title && description && articleURL && imageURL && excerpt) {
-            return {title: title, description: description, articleURL: articleURL, imageURL: imageURL, excerpt: excerpt}
-        }
-      });
-      const output = parsedData.filter((x) => x != undefined);
-      return output;
-    
-    } catch (error) {
-      console.log(error);
-      return;
-    }
-  }
-
-  const substackComponents = document.querySelectorAll("div.substack-container");
-  let rssData = await getSubstackRSS();
-  
-  if (!rssData) {
-    substackComponents.forEach((x) => {
-        const template = x.querySelector('.template');
-        const fallback = x.querySelector('.article-fallback');
-        fallback?.classList.add('grid');
-        fallback?.classList.remove('hidden');
+    if (!rssData) {
+      substackComponents.forEach((x) => {
+        const template = x.querySelector(".template");
+        const fallback = x.querySelector(".article-fallback");
+        fallback?.classList.add("grid");
+        fallback?.classList.remove("hidden");
         template?.remove();
+      });
+    } else {
+      substackComponents.forEach((x) => {
+        const template = x.querySelector(".template");
+        const fallback = x.querySelector(".article-fallback");
+        const limit = Number(x.getAttribute("data-limit"));
+        rssData.slice(0, limit).map((data) => {
+          const newItem = template?.cloneNode(true) as HTMLElement | undefined;
+          newItem?.classList.remove("hidden", "template");
+          newItem?.classList.add("grid");
 
-    })
-  } else {
-    substackComponents.forEach((x) => {
-        const template = x.querySelector('.template');
-        const fallback = x.querySelector('.article-fallback');
-        const limit = Number(x.getAttribute('data-limit'));
-        rssData.slice(0,limit).map((data) => {
-            const newItem = template?.cloneNode(true) as HTMLElement | undefined;
-            newItem?.classList.remove('hidden', 'template');
-            newItem?.classList.add('grid');
+          const newItemTitle = newItem?.querySelector("h3.article-title");
+          const newItemDescription =
+            newItem?.querySelector("p.article-excerpt");
+          const newItemImage = newItem?.querySelector("img");
+          const newItemLink = newItem?.querySelector("p.article-link");
 
-            const newItemTitle = newItem?.querySelector('h3.article-title');
-            const newItemDescription = newItem?.querySelector('p.article-excerpt');
-            const newItemImage = newItem?.querySelector('img');
-            const newItemLink = newItem?.querySelector('p.article-link');
+          if (newItemTitle) {
+            newItemTitle.innerHTML = data.title;
+          }
 
-            if (newItemTitle){
-                newItemTitle.innerHTML = data.title;
-            }
+          if (newItemDescription) {
+            newItemDescription.innerHTML = data.excerpt;
+          }
 
-            if (newItemDescription){
-                newItemDescription.innerHTML = data.excerpt;
-            }
+          newItemImage?.setAttribute("src", data.imageURL);
+          newItemImage?.setAttribute(
+            "alt",
+            `Featured image for article titled "${data.title}"`,
+          );
 
-            newItemImage?.setAttribute('src', data.imageURL);
-            newItemImage?.setAttribute('alt', `Featured image for article titled "${data.title}"`);
+          newItemLink?.setAttribute("href", data.articleURL);
 
-            newItemLink?.setAttribute('href', data.articleURL);
+          if (newItem) {
+            x.appendChild(newItem);
+          }
 
-            if (newItem) {
-                x.appendChild(newItem);
-            }
-
-            template?.remove();
-            fallback?.remove();
-
-        })
-    })
-  }
-  })
+          template?.remove();
+          fallback?.remove();
+        });
+      });
+    }
+  });
 </script>

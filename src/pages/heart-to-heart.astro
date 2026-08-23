@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import MainLayout from "../layouts/MainLayout.astro";
 import FullScreenHero from "../components/FullScreenHero.astro";
 import LinkButton from "../components/LinkButton.astro";
+import Substack from "../components/Substack.astro";
 
 import waterfallImage from "../assets/img/waterfall-laughing.jpg";
 import hearttoheartImage from "../assets/img/heart-to-heart-hero.jpg";
@@ -78,38 +79,9 @@ import heartImage from "../assets/img/hearts.png";
         </p><h2 class="text-moss font-serif text-4xl font-light md:text-5xl">
           From my heart to yours.
         </h2>
-      </div><div class="mx-auto max-w-4xl">
-        <div class="grid items-stretch gap-0 md:grid-cols-2">
-          <Image
-            src={waterfallImage}
-            alt="Kelci Heart laughing under a waterfall"
-            format="webp"
-          />
-          <article
-            class="border-rose flex flex-col justify-center border-t-2 bg-white/60 p-10"
-          >
-            <h3
-              class="text-moss mb-3 font-serif text-2xl leading-tight font-light"
-            >
-              Hide &amp; Seek; <em class="text-rose"
-                >Waterfalls &amp; Wildfires</em
-              >
-            </h3><p
-              class="text-mountain mb-5 font-sans text-sm leading-relaxed"
-            >
-              I am not done with hide and seek. But I am done hiding from this.
-              Ready or not. Here I come.
-            </p><a
-              class="border-rose text-rose hover:border-moss hover:text-moss border-b pb-0.5 font-sans text-xs tracking-widest uppercase transition-colors duration-200"
-              href="https://kelciheart.substack.com/p/hide-and-seek"
-              >Read more →</a
-            >
-          </article>
-        </div>
-      </div><div
-        class="bg-moss -mx-6 mt-16 px-8 py-14 text-center"
-        data-alpine-devtools-right-click=""
-      >
+      </div>
+      <Substack class="mx-auto max-w-4xl" limit={3} />
+      <div class="bg-moss -mx-6 mt-16 px-8 py-14 text-center">
         <p
           class="text-sunshine mb-4 font-sans text-xs tracking-[0.3em] uppercase"
         >
@@ -147,7 +119,7 @@ import heartImage from "../assets/img/hearts.png";
       />
     </div><div class="px-6 pt-10 pb-24">
       <div class="mx-auto max-w-4xl">
-        <div class="mb-12 text-center" data-alpine-devtools-right-click="">
+        <div class="mb-12 text-center">
           <p
             class="text-sunshine mb-6 font-sans text-xs tracking-[0.3em] uppercase"
           >
@@ -262,7 +234,7 @@ import heartImage from "../assets/img/hearts.png";
     </div>
   </section>
 
-  <section class="bg-softwhite px-6 py-24" data-alpine-devtools-right-click="">
+  <section class="bg-softwhite px-6 py-24">
     <div class="mx-auto max-w-4xl text-center">
       <p class="text-rose mb-4 font-sans text-xs tracking-[0.3em] uppercase">
         Find me out there
@@ -301,7 +273,7 @@ import heartImage from "../assets/img/hearts.png";
     </div>
   </section>
 
-  <section class="bg-moss px-6 py-20" data-alpine-devtools-right-click="">
+  <section class="bg-moss px-6 py-20">
     <div class="mx-auto max-w-2xl text-center">
       <h2
         class="text-softwhite mb-6 font-serif text-4xl leading-tight font-light md:text-5xl"
