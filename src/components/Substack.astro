@@ -116,6 +116,7 @@ const { class: className, limit = 1 } = Astro.props;
       "div.substack-container",
     );
     let rssData = await getSubstackRSS();
+    console.log(rssData);
 
     if (!rssData) {
       substackComponents.forEach((x) => {
@@ -139,7 +140,7 @@ const { class: className, limit = 1 } = Astro.props;
           const newItemDescription =
             newItem?.querySelector("p.article-excerpt");
           const newItemImage = newItem?.querySelector("img");
-          const newItemLink = newItem?.querySelector("p.article-link");
+          const newItemLink = newItem?.querySelector("a.article-link");
 
           if (newItemTitle) {
             newItemTitle.innerHTML = data.title;
