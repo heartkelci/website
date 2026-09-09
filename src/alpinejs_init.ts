@@ -1,4 +1,5 @@
 import type { Alpine } from "alpinejs";
+import resize from "@alpinejs/resize";
 
 interface interestFormData {
   [x: string]: any;
@@ -9,6 +10,7 @@ interface interestFormData {
   handleSubmit(): void;
 }
 export default (Alpine: Alpine) => {
+  Alpine.plugin(resize);
   Alpine.data("interestForm", (): interestFormData => ({
     name: "",
     email: "",

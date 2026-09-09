@@ -116,7 +116,6 @@ const { class: className, limit = 1 } = Astro.props;
       "div.substack-container",
     );
     let rssData = await getSubstackRSS();
-    console.log(rssData);
 
     if (!rssData) {
       substackComponents.forEach((x) => {

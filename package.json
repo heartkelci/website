@@ -12,6 +12,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@alpinejs/resize": "^3.17.2",
     "@astrojs/alpinejs": "^1.0.0",
     "@netlify/functions": "^6.0.0",
     "@tailwindcss/vite": "^4.3.3",
@@ -21,6 +22,7 @@
     "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
+    "@types/alpinejs__resize": "^3.14.0",
     "netlify-cli": "^27.1.2",
     "prettier": "^3.9.6",
     "prettier-plugin-astro": "^0.14.1",

@@ -69,7 +69,7 @@ import oracleImage from "../assets/img/oracle-readings.jpg";
   </section>
   <!-- Close of Hero Section -->
 
-  <section>
+  <section id="mentoring">
     <ImageText
       src={mentoringImage}
       alt="Kelci Heart holding a white feather"
@@ -87,13 +87,16 @@ import oracleImage from "../assets/img/oracle-readings.jpg";
       </p><p class="text-mountain mb-4 font-sans leading-relaxed">
         This is intuitive, embodied, and real — equal parts inner alchemy,
         nervous system work, and wild sovereign reclamation.
-      </p><p class="text-rose font-sans text-sm italic">
-        Reach out below to begin the conversation.
-      </p>
+      </p><a
+        href="#contact-form"
+        class="text-rose font-sans text-sm italic underline"
+      >
+        Reach out below to begin the conversation &rarr;
+      </a>
     </ImageText>
   </section>
 
-  <section class="bg-moss border-rose border-t-4">
+  <section id="sacred-bodywork" class="bg-moss border-rose border-t-4">
     <ImageText
       src={bodyworkImage}
       alt="Kelci Heart dancing by a tree"
@@ -117,13 +120,16 @@ import oracleImage from "../assets/img/oracle-readings.jpg";
       </p><p class="text-softwhite/80 mb-4 font-sans leading-relaxed">
         A shamanic medicine journey where the medicine is you.
       </p>
-      <p class="text-rose font-sans text-sm italic">
-        Reach out below to begin the conversation.
-      </p>
+      <a
+        href="#contact-form"
+        class="text-rose font-sans text-sm italic underline"
+      >
+        Reach out below to begin the conversation &rarr;
+      </a>
     </ImageText>
   </section>
 
-  <section>
+  <section id="oracle-intuitive-readings">
     <ImageText
       src={oracleImage}
       alt="An oracle deck"
@@ -141,9 +147,12 @@ import oracleImage from "../assets/img/oracle-readings.jpg";
         Drawing on intuitive card reading, tarot, astrology, and Human Design,
         each reading meets you exactly where you are. Come with a question, a
         season of transition, or simply an openness to receive.
-      </p><p class="text-rose font-sans text-sm italic">
-        Reach out below to begin the conversation.
-      </p>
+      </p><a
+        href="#contact-form"
+        class="text-rose font-sans text-sm italic underline"
+      >
+        Reach out below to begin the conversation &rarr;
+      </a>
     </ImageText>
   </section>
 
@@ -168,7 +177,7 @@ import oracleImage from "../assets/img/oracle-readings.jpg";
     </div>
   </section>
 
-  <section x-data="{submitted: false}">
+  <section id="contact-form" x-data="{submitted: false}">
     <div class="mx-auto max-w-2xl px-8 py-24">
       <div class="mb-12">
         <p class="text-rose mb-4 font-sans text-xs tracking-[0.3em] uppercase">

@@ -7,8 +7,9 @@ console.log(Astro.url.pathname);
 
 <header
   class="bg-softwhite border-rose/20 fixed top-0 right-0 left-0 z-99 flex h-[87.5px] border-b shadow-sm"
-  x-data="{currentURL: null}"
+  x-data="{currentURL: null, mobileMenu: false}"
   x-init="currentURL = window.location.pathname;"
+  x-resize="if($width>768){mobileMenu=false;}"
 >
   <div
     class="mx-auto my-auto flex w-full max-w-6xl flex-row items-center justify-between px-6 py-2"
@@ -26,7 +27,7 @@ console.log(Astro.url.pathname);
         format="webp"
       />
     </a>
-    <div id="navigation" class="flex flex-row">
+    <div id="navigation" class="hidden flex-row md:flex">
       <nav>
         <ul class="flex flex-col gap-1">
           {
@@ -48,6 +49,52 @@ console.log(Astro.url.pathname);
         </ul>
       </nav>
     </div>
+    <div
+      class="flex transition-opacity duration-200 hover:opacity-75 md:hidden"
+    >
+      <label
+        for="hamburger"
+        class="relative flex h-7 w-7 cursor-pointer items-center justify-center rounded-full"
+      >
+        <input
+          type="checkbox"
+          id="hamburger"
+          x-model="mobileMenu"
+          class="peer absolute h-0 w-0 opacity-0"
+        />
+
+        <!-- middle bar -->
+        <span
+          class="relative block h-0.75 w-7 rounded-full bg-[#565754] transition-all duration-300 peer-checked:bg-transparent before:absolute before:left-0 before:h-0.75 before:w-7 before:-translate-y-2 before:rounded-full before:bg-[#565754] before:transition-all before:duration-300 before:content-[''] peer-checked:before:translate-y-0 peer-checked:before:rotate-45 after:absolute after:left-0 after:h-0.75 after:w-7 after:translate-y-2 after:rounded-full after:bg-[#565754] after:transition-all after:duration-300 after:content-[''] peer-checked:after:translate-y-0 peer-checked:after:-rotate-45"
+        >
+        </span>
+      </label>
+    </div>
+  </div>
+  <div
+    class="bg-softwhite border-rose/20 fixed top-[87.5px] w-full border-b px-6 py-2 shadow-sm"
+    x-cloak
+    x-show="mobileMenu"
+    x-transition
+  >
+    <ul class="flex flex-col gap-2">
+      {
+        SITE_NAVIGATION.map((x) => (
+          <li
+            class:list={[
+              "text-center font-sans text-xs leading-relaxed tracking-[0.2em] uppercase",
+              {
+                "text-rose": Astro.url.pathname == x.href,
+                "text-mountain hover:text-moss transition-colors duration-200":
+                  Astro.url.pathname != x.href,
+              },
+            ]}
+          >
+            <a href={x.href}>{x.label}</a>
+          </li>
+        ))
+      }
+    </ul>
   </div>
 </header>
 <div class="h-[87.5px] w-full"></div>
